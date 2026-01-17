@@ -56,5 +56,17 @@ uv run jupyter nbconvert --to=script notebook.ipynb
 
 Once the script has been created, we can improve the script by parametizing it for different months and year for the taxi trip data and use *click* python library to create cli parameters that can be passed while executing the script from the command line.
 
+### Create a dockerized data container
+
+* One docker container running the postgres database
+* Another docker container which will actually run the ingestion script
+* Put both the containers under the same docker network by setting up a docker network
+* A third docker container will run **PgAdmin** to manage our postgres database
+* Use **Docker Compose** to run all these containers with ease, all containers in a docker compose file run on the same network.
+
+```bash
+# Navigate to the docker-compose yaml file and execute the command below
+docker-compose up
+```
 
 

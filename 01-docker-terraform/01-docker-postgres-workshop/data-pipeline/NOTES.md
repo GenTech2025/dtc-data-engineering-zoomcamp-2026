@@ -42,3 +42,19 @@ docker build -t test:pandas ./ # explanation of the command later
 # Run the container image
 docker run -it --entrypoint=bash --rm test:pandas # explanation of the command later
 ```
+
+
+### Transforming and Inserting Data into Postgres SQL database
+
+First download the taxi csv dataset from DTC and then transform it and create a sql connection to our postgres database using *sqlalchemy* library. Once connection is extablished we will insert the contents of the csv file into our database in chunks (so that we dont overload our memory). <br/>
+    Once we have finished exploring our data in the jupyter notebook we will convert it into script using the following bash command.
+
+```bash
+#!/bin/bash
+uv run jupyter nbconvert --to=script notebook.ipynb
+```
+
+Once the script has been created, we can improve the script by parametizing it for different months and year for the taxi trip data and use *click* python library to create cli parameters that can be passed while executing the script from the command line.
+
+
+

@@ -6,7 +6,7 @@ tasks:
     type: io.kestra.plugin.core.kv.Set
     key: GCP_PROJECT_ID
     kvType: STRING
-    value: dtc-de2026 # TODO replace with your project id (Replaced)
+    value: starlit-effect-484216-a1 # TODO replace with your project id (Replaced)
 
   - id: gcp_location
     type: io.kestra.plugin.core.kv.Set

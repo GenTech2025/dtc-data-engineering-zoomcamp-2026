@@ -9,6 +9,7 @@ volumes:
     driver: local
 
 services:
+# Running the PostgresSQL docker image service
   pgdatabase:
     image: postgres:18
     environment:
@@ -23,6 +24,7 @@ services:
       kestra:
         condition: service_started
 
+# Running the PgAdmin docker image service
   pgadmin:
     image: dpage/pgadmin4
     environment:
@@ -33,7 +35,7 @@ services:
     depends_on:
       pgdatabase:
         condition: service_started
-
+# Running the Kestra postgres database docker image service
   kestra_postgres:
     image: postgres:18
     volumes:
@@ -47,7 +49,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 10
-
+# Running the Kestra docker image service
   kestra:
     image: kestra/kestra:v1.1
     pull_policy: always
@@ -92,5 +94,5 @@ services:
       - "8081:8081"
     depends_on:
       kestra_postgres:
-        condition: service_healthy
+        condition: service_started
     

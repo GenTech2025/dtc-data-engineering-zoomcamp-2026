@@ -11,7 +11,7 @@ import time
 BUCKET_NAME = "data-nytaxi-dtc-de2026" # Changed bucket name to mine
 
 # If you authenticated through the GCP SDK you can comment out these two lines
-CREDENTIALS_FILE = "../module_1/terraform_gcp/keys/creds.json"
+CREDENTIALS_FILE = "../module_1/terraform-gcp/keys/creds.json"
 client = storage.Client.from_service_account_json(CREDENTIALS_FILE)
 # If commented initialize client with the following
 # client = storage.Client(project='zoomcamp-mod3-datawarehouse')

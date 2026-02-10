@@ -107,5 +107,3 @@ Which database would you like to use?
 Enter a number: 1
 13:03:21  Profile taxi_rides_ny written to /home/roy/.dbt/profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
 ```
-
-> Test

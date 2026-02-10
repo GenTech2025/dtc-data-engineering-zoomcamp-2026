@@ -21,14 +21,15 @@ def download_and_convert_files(taxi_type):
             csv_gz_filename = f"{taxi_type}_tripdata_{year}-{month:02d}.csv.gz"
             csv_gz_filepath = data_dir / csv_gz_filename
 
+            print(f"Downloading {csv_gz_filename}...", flush=True)
             response = requests.get(f"{BASE_URL}/{taxi_type}/{csv_gz_filename}", stream=True)
             response.raise_for_status()
 
             with open(csv_gz_filepath, 'wb') as f:
-                for chunk in response.iter_content(chunk_size=8192):
+                for chunk in response.iter_content(chunk_size=1024 * 1024):
                     f.write(chunk)
 
-            print(f"Converting {csv_gz_filename} to Parquet...")
+            print(f"Converting {csv_gz_filename} to Parquet...", flush=True)
             con = duckdb.connect()
             con.execute(f"""
                 COPY (SELECT * FROM read_csv_auto('{csv_gz_filepath}'))

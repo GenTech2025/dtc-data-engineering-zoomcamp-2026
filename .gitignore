@@ -4,3 +4,8 @@
 troubleshooting.md
 *.duckdb
 module_4/taxi_rides_ny/taxi_rides_ny.duckdb
+.bruin.yml
+logs/runs
+logs/*.log
+__pycache__/
+*.py[cod]

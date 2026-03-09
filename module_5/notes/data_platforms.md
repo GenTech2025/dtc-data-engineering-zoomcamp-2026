@@ -59,3 +59,21 @@ bruin lineage assets/players.asset.yml
 # Query the resulting table
 bruin query --connection duckdb-default --query "SELECT * FROM dataset.player_stats"
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
